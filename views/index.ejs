@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <nav class=" max-w-screen-xl mx-auto flex item-center justify-between py-6 ">
+        <h1 class="font-bold text-xl">HISAB KITAB</h1>
+        <div class="flex gap-10 text-lg">
+            <a href="/">Home</a>
+            <a href="/create">Create a new Hissab</a>
+        </div>
+    </nav>
+
+    <main class="max-w-screen-xl mx-auto mt-20 px-4">
+        <h1 class="text-[2vw] font-bold">All Hissab Kitab</h1>
+        <div class="h-96 mt-10 space-y-4"> <!-- Added space-y-4 for consistent spacing between items -->
+            <% files.forEach((file) => { %>
+                <div class=" bg-blue-500 w-[30%]  h-16 rounded-lg flex items-center justify-between px-4 gap-1 text-white font-semibold">
+                    <span class="text-[1.2vw]"><%=file %></span>
+                    <div class="w-[60%] h-full flex justify-between items-center text-black">
+                        <!-- Right arrow link -->
+                        <a class="bg-white p-2 h-10 w-10 rounded-full flex item-center justify-center" href="/read/<%=file%>">
+                            <i class="ri-arrow-right-line ri-1x"></i>
+                        </a>
+                        <!-- Edit and delete links -->
+                        <div class="flex gap-3">
+                            <a class="bg-white p-2 h-10 w-10 rounded-full flex item-center justify-center" href="/edit/<%=file%>">
+                                <i class="ri-pencil-line ri-1x"></i>
+                            </a>
+                            <a class="bg-white p-2 h-10 w-10 rounded-full flex item-center justify-center" href="/delete/<%=file%>">
+                                <i class="ri-delete-bin-5-line ri-1x text-red-500"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+    
+</body>
+</html>
